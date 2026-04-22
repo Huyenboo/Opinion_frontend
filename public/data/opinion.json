@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "category": "福利厚生",
+    "content": "カフェテリアのメニューを増やしてほしいです。",
+    "createdAt": "2026-04-15",
+    "status": "pending"
+  },
+  {
+    "id": 2,
+    "category": "ITツール",
+    "content": "新しいエディタのライセンスを申請したいです。",
+    "createdAt": "2026-04-16",
+    "status": "completed"
+  }
+]

@@ -1,0 +1,51 @@
+{
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://example.co.jp/concierge/schemas/form_post_v1.json",
+    "title": "社内コンシェルジュ 投稿フォーム",
+    "description": "従業員が投稿テーマに対して意見を投稿するためのフォーム。",
+    "type": "object",
+    "required": ["theme_id", "category", "comment"],
+    "additionalProperties": false,
+    "properties": {
+      "theme_id": {
+        "type": "string",
+        "format": "uuid",
+        "description": "対象の投稿テーマID。インフォメーションページから引き継ぐ。"
+      },
+      "category": {
+        "title": "カテゴリ",
+        "type": "string",
+        "enum": ["welfare", "work", "relation", "other"],
+        "description": "投稿カテゴリ。福利厚生/業務改善/人間関係/その他。"
+      },
+      "comment": {
+        "title": "コメント",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1000,
+        "description": "投稿コメント。最大1000文字. 改行可。"
+      },
+      "status": {
+        "type": "string",
+        "enum": ["completed"],
+        "default": "completed",
+        "description": "投稿状態。投稿=completed。"
+      }
+    }
+  },
+  "uiSchema": {
+    "theme_id": { "ui:widget": "hidden" },
+    "category": {
+      "ui:widget": "select",
+      "ui:placeholder": "カテゴリを選択してください",
+      "ui:enumNames": ["福利厚生", "業務改善", "人間関係", "その他"]
+    },
+    "comment": {
+      "ui:widget": "textarea",
+      "ui:options": { "rows": 20 },
+      "ui:placeholder": "ご意見をご自由にお書きください（最大1000文字）"
+    },
+    "status": { "ui:widget": "hidden" }
+  }
+}
